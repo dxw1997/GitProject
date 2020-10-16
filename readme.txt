@@ -1,1 +1,1 @@
-Git Git Git
+Git Git Git awesome version-control software.
