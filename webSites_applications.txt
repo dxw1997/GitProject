@@ -1,0 +1,27 @@
+
+https://www.cnblogs.com/jessezeng/p/5617105.html
+
+https://blog.csdn.net/jzz601264258/article/details/105850816
+
+https://blog.csdn.net/Remberthename/article/details/106796887
+
+https://mip.yht7.com/news/88716
+
+https://www.cnblogs.com/aaron911/p/11002338.html
+
+https://blog.csdn.net/u012129607/article/details/74993302
+
+note:
+  rcu_sched
+  orayboxvpn_x86
+  
+/usr/sbin/orayboxvpn_x86 -R -d -i pgyapi.oray.net -u /etc/oray/pgyvistor/script/ip-up.d -w /etc/oray/pgyvistor/script/ip+
+pgyVisitor
+kswapd1
+dockerd
+teamviewd
+
+watchdog
+
+kworker/5:1
+
