@@ -23,6 +23,7 @@ import shutil
 import random
 from Models import Unet_dict, NestedUNet, U_Net, R2U_Net, AttU_Net, R2AttU_Net, Resnet_Unet, AttU_Net_Ds
 from Models2 import reS_Unet
+from efficientNet_encoder.unetModel import Unet as EUnet
 from ModelZoo.fcn import FCN8s, VGGNet
 from losses import calc_loss, dice_loss, threshold_predictions_v,threshold_predictions_p
 from ploting import plot_kernels, LayerActivations, input_images, plot_grad_flow
@@ -85,9 +86,13 @@ def model_unet(model_input, in_channel=3, out_channel=1):
 
 #passsing this string so that if it's AttU_Net or R2ATTU_Net it doesn't throw an error at torchSummary
 #model_test = model_unet(model_Inputs[5], 3, 1)
-vgg_model = VGGNet(requires_grad=True)
-model_test = FCN8s(pretrained_net=vgg_model, n_class=1)
+#vgg_model = VGGNet(requires_grad=True)
+#model_test = FCN8s(pretrained_net=vgg_model, n_class=1)
+#model_test.to(device)
+model_test = EUnet(encoder_name="efficientnet-b1", encoder_depth=5, 
+    encoder_weights="imagenet")
 model_test.to(device)
+
 
 #######################################################
 #Getting the Summary of Model
@@ -99,18 +104,18 @@ model_test.to(device)
 #Passing the Dataset of Images and Labels
 #######################################################
 
-t_data = '/home/dxw/Dataset/ISIC2017_train_imgs/'
-l_data = '/home/dxw/Dataset/ISIC2017_train_labels/'
-test_image = '/home/dxw/Dataset/ISIC2017_test_imgs/ISIC_0012086.jpg'
-test_label = '/home/dxw/Dataset/ISIC2017_test_labels/ISIC_0012086_segmentation.png'
-#test_folderP = '/home/dxw/Dataset/ISIC2017_test_imgs/*'
-#test_folderL = '/home/dxw/Dataset/ISIC2017_test_labels/*'
+t_data = '/kaggle/input/isic2017/ISIC2017_train_imgs/'
+l_data = '/kaggle/input/isic2017/ISIC2017_train_labels/'
+test_image = '/kaggle/input/isic2017/ISIC2017_test_imgs/ISIC_0012086.jpg'
+test_label = '/kaggle/input/isic2017/ISIC2017_test_labels/ISIC_0012086_segmentation.png'
+test_folderP = '/kaggle/input/isic2017/ISIC2017_test_imgs/*'
+test_folderL = '/kaggle/input/isic2017/ISIC2017_test_labels/*'
 #test_folderP = '/home/dxw/Dataset/ISIC2017_val_imgs/*'
 #test_folderL = '/home/dxw/Dataset/ISIC2017_val_labels/*'
 #test_folderP = '/home/dxw/Dataset/ISIC2017_train_imgs/*'
 #test_folderL = '/home/dxw/Dataset/ISIC2017_train_labels/*'
-test_folderP = '/home/dxw/Dataset/ph2/images/*'
-test_folderL = '/home/dxw/Dataset/ph2/labels/*'
+#test_folderP = '/home/dxw/Dataset/ph2/images/*'
+#test_folderL = '/home/dxw/Dataset/ph2/labels/*'
 
 
 data_transform = torchvision.transforms.Compose([
