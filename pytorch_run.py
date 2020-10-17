@@ -56,7 +56,7 @@ print('batch_size = ' + str(batch_size))
 
 valid_size = 0.15
 
-epoch = 2
+epoch = 50
 print('epoch = ' + str(epoch))
 
 random_seed = random.randint(1, 100)

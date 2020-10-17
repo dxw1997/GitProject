@@ -49,7 +49,7 @@ else:
 #######################################################
 
 batch_size = 8
-epoch = 8
+epoch = 50
 
 print('batch_size = ' + str(batch_size))
 #valid_size = 0.15
