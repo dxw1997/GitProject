@@ -22,7 +22,7 @@ def dice_loss(prediction, target):
     return 1 - ((2. * intersection + smooth) / (i_flat.sum() + t_flat.sum() + smooth))
 
 def crossentropy_loss(prediction, target, weight=None, ignore_label=-1):
-    assert prediction.size(2) == target.size(2) && prediction.size(3) == target.size(3)
+    assert prediction.size(2) == target.size(2) and prediction.size(3) == target.size(3)
     loss = nn.CrossEntropy_loss(weight=weight, ignore_index=ignore_label)(prediction, target)
     return loss
 
