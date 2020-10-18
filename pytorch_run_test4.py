@@ -89,7 +89,7 @@ def model_unet(model_input, in_channel=3, out_channel=1):
 #vgg_model = VGGNet(requires_grad=True)
 #model_test = FCN8s(pretrained_net=vgg_model, n_class=1)
 #model_test.to(device)
-model_test = EUnet(encoder_name="efficientnet-b1", encoder_depth=5, 
+model_test = EUnet(encoder_name="efficientnet-b2", encoder_depth=5, 
     encoder_weights="imagenet")
 model_test.to(device)
 
