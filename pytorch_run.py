@@ -148,7 +148,7 @@ Training_Data = Images_Dataset_folder(t_data,
 #######################################################
 
 data_transform = torchvision.transforms.Compose([
-            torchvision.transforms.Resize((260,260)),
+            torchvision.transforms.Resize((256,256)),
 #            torchvision.transforms.CenterCrop(96),
             torchvision.transforms.ToTensor(),
             torchvision.transforms.Normalize(
@@ -157,7 +157,7 @@ data_transform = torchvision.transforms.Compose([
             )
         ])
 data_transform2 = torchvision.transforms.Compose([
-            torchvision.transforms.Resize((260,260)),
+            torchvision.transforms.Resize((256,256)),
 #            torchvision.transforms.CenterCrop(96),
             torchvision.transforms.ToTensor(),
 #            torchvision.transforms.Normalize(mean=[0.5], std=[0.5])
